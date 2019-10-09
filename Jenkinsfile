@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('clean') {
+            steps {
+                cleanWs()            
+            }
+        }
         stage('Clone') {
             steps {
                 sh 'git clone https://github.com/leonidfrolov/spring-petclinic'
