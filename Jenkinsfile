@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-            sh 'cd ./spring-petclinic; mvn clean test'
+            sh 'mvn clean test'
             }
             tools {
                 maven 'maven'
@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-            sh 'cd ./spring-petclinic; mvn package -Dmaven.test.skip=true'
+            sh 'mvn package -Dmaven.test.skip=true'
             }
             tools {
                 maven 'maven'
