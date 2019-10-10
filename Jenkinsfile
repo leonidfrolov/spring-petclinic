@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Clone') {
             steps {
-                git branch: "${GIT_BRANCH}", credentialsId: '67191338-eb19-4778-90be-4d9335c6f5d5', url: 'https://github.com/leonidfrolov/spring-petclinic'
+                git branch: "${NODE_NAME}", credentialsId: '67191338-eb19-4778-90be-4d9335c6f5d5', url: 'https://github.com/leonidfrolov/spring-petclinic'
             }
         }
         stage('Test') {
