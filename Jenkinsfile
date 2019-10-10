@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Clone') {
             steps {
-                sh 'git clone https://github.com/leonidfrolov/spring-petclinic; cd ./spring-petclinic; git checkout dev'
+                git branch: 'master', url: 'https://github.com/leonidfrolov/spring-petclinic'
             }
             tools {
                 git 'Default'
