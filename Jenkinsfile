@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-            sh 'cd /var/lib/jenkins/workspace/Job_F/spring-petclinic; mvn clean test'
+            sh 'pwd; cd ./spring-petclinic; mvn clean test'
             }
             tools {
                 maven 'maven'
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-            sh 'cd /var/lib/jenkins/workspace/Job_F/spring-petclinic; mvn package'
+            sh 'cd ./spring-petclinic; mvn package'
             }
             tools {
                 maven 'maven'
