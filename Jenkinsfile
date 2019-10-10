@@ -8,8 +8,7 @@ pipeline {
         }
         stage('Clone') {
             steps {
-                sh 'printenv'
-                git branch: 'dev', changelog: false, credentialsId: '67191338-eb19-4778-90be-4d9335c6f5d5', poll: false, url: 'https://github.com/leonidfrolov/spring-petclinic'
+                git branch: $GIT_BRANCH, credentialsId: '67191338-eb19-4778-90be-4d9335c6f5d5', url: 'https://github.com/leonidfrolov/spring-petclinic'
             }
         }
         stage('Test') {
@@ -22,7 +21,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-            sh 'mvn package -Dmaven.test.skip=true'
+            sh 'mvn package -Dmaven.test.skip=true -DartifactID=$GIT_BRANCH'
             }
             tools {
                 maven 'maven'
