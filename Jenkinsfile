@@ -8,6 +8,7 @@ pipeline {
         }
         stage('Clone') {
             steps {
+                git branch: 'qa', credentialsId: '67191338-eb19-4778-90be-4d9335c6f5d5', url: 'https://github.com/leonidfrolov/spring-petclinic'
                 sh 'git clone https://github.com/leonidfrolov/spring-petclinic'
             }
             tools {
