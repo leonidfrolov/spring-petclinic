@@ -8,6 +8,7 @@ pipeline {
         }
         stage('Clone') {
             steps {
+                sh 'printenv'
                 git branch: "${GIT_BRANCH}", url: 'https://github.com/leonidfrolov/spring-petclinic'
             }
         }
