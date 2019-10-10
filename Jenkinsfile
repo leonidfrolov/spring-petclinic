@@ -8,15 +8,12 @@ pipeline {
         }
         stage('Clone') {
             steps {
-                sh 'git clone https://github.com/leonidfrolov/spring-petclinic; cd ./spring-petclinic; git checkout stage'
-            }
-            tools {
-                git 'Default'
+                git branch: "${GIT_BRANCH}", credentialsId: '67191338-eb19-4778-90be-4d9335c6f5d5', url: 'https://github.com/leonidfrolov/spring-petclinic'
             }
         }
         stage('Test') {
             steps {
-            sh 'cd ./spring-petclinic; mvn clean test'
+            sh 'mvn clean test'
             }
             tools {
                 maven 'maven'
@@ -24,7 +21,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-            sh 'cd ./spring-petclinic; mvn package -Dmaven.test.skip=true'
+            sh 'mvn package -Dmaven.test.skip=true'
             }
             tools {
                 maven 'maven'
@@ -37,7 +34,7 @@ pipeline {
                     spec: '''{
                         "files": [
                             {
-                                "pattern": "spring-petclinic/target/**.jar",
+                                "pattern": "$WORKSPACE/target/**.jar",
                                 "target": "test/com/epam_labs/frolov/"
                             }
                         ]
