@@ -8,10 +8,8 @@ pipeline {
         }
         stage('Clone') {
             steps {
-                sh 'git clone https://github.com/leonidfrolov/spring-petclinic; cd ./spring-petclinic; git checkout dev'
-            }
-            tools {
-                git 'Default'
+                sh 'printenv'
+                git branch: 'dev', changelog: false, credentialsId: '67191338-eb19-4778-90be-4d9335c6f5d5', poll: false, url: 'https://github.com/leonidfrolov/spring-petclinic'
             }
         }
         stage('Test') {
