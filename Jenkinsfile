@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-            sh 'mvn package -Dmaven.test.skip=true -DartifactID=$GIT_BRANCH'
+            sh 'mvn package -Dmaven.test.skip=true'
             }
             tools {
                 maven 'maven'
