@@ -34,7 +34,7 @@ pipeline {
                     spec: '''{
                         "files": [
                             {
-                                "pattern": "target/**.jar",
+                                "pattern": "$WORKSPACE/target/**.jar",
                                 "target": "test/com/epam_labs/frolov/"
                             }
                         ]
