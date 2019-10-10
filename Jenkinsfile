@@ -34,7 +34,7 @@ pipeline {
                     spec: '''{
                         "files": [
                             {
-                                "pattern": "spring-petclinic/target/**.jar",
+                                "pattern": "target/**.jar",
                                 "target": "test/com/epam_labs/frolov/"
                             }
                         ]
